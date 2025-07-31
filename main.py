@@ -4,6 +4,11 @@ import requests
 
 app = Flask(__name__)
 
+# Ruta raíz opcional para mostrar que el servidor está activo
+@app.route('/')
+def home():
+    return 'API activa: usa /placa?placa=ABC123'
+
 @app.route("/placa", methods=["GET"])
 def get_datos_por_placa():
     placa = request.args.get("placa")
